@@ -16,7 +16,7 @@ const LoginForm = () => {
   } = useForm<TLoginSchema>({ resolver: zodResolver(loginSchema) });
   return (
     <form
-      className="flex flex-col bodoni w-[90%] mb-8"
+      className="flex flex-col bodoni w-[100%] md:w-[90%] mb-8"
       onSubmit={handleSubmit((data) => {
         console.log(data);
         reset();
