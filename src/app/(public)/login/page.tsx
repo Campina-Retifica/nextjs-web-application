@@ -5,7 +5,7 @@ import React from "react";
 
 const loginPage = () => {
   return (
-    <main className="grid grid-cols-1 md:grid-cols-2 bg-zinc-50 poppins max-h-screen h-screen md:h-auto">
+    <main className="grid grid-cols-1 md:grid-cols-2 bg-zinc-50 poppins max-h-screen h-screen">
       <Image
         priority
         src={"/campina-retifica.png"}
@@ -13,7 +13,7 @@ const loginPage = () => {
         width={720}
         height={900}
         sizes="40vw"
-        className="object-cover object-center mx-auto hidden md:block"
+        className="mx-auto hidden md:block"
       />
       <div className="px-16 text-zinc-950 flex flex-col justify-center">
         <h1 className="text-4xl poppins font-[700] mb-4 w-[100%] md:w-[90%]">
