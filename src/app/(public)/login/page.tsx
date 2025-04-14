@@ -16,7 +16,7 @@ const loginPage = () => {
         className="object-cover object-center mx-auto hidden md:block"
       />
       <div className="px-16 text-zinc-950 flex flex-col justify-center">
-        <h1 className="text-4xl roboto font-[700] mb-4 w-[100%] md:w-[90%]">
+        <h1 className="text-4xl poppins font-[700] mb-4 w-[100%] md:w-[90%]">
           Realize o seu login!
         </h1>
         <LoginForm />
