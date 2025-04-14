@@ -1,12 +1,6 @@
 import type { Metadata } from "next";
-import { Bodoni_Moda, Poppins, Roboto } from "next/font/google";
+import { Poppins, Roboto } from "next/font/google";
 import "./globals.css";
-
-const bodoni = Bodoni_Moda({
-  variable: "--font-bodoni",
-  subsets: ["latin"],
-  weight: ["400", "500", "700"],
-});
 
 const roboto = Roboto({
   variable: "--font-roboto",
@@ -32,9 +26,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR">
-      <body
-        className={`${poppins.variable} ${roboto.variable} ${bodoni.variable} antialiased`}
-      >
+      <body className={`${poppins.variable} ${roboto.variable} antialiased`}>
         {children}
       </body>
     </html>
