@@ -14,10 +14,11 @@ export const authUser = async (payload: TLoginSchema) => {
     },
     body: JSON.stringify(payload),
   });
+  console.log(response);
 
   const data = await response.json();
   if (data.token) {
-    setCookies("token", data.token);
+    await setCookies("token", data.token);
     return true;
   }
   return false;
