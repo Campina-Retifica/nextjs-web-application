@@ -1,5 +1,5 @@
 "use server";
-import { TLoginSchema } from "@/components/types/LoginSchema";
+import { TLoginSchema } from "@/types/LoginSchema";
 import dotenv from "dotenv";
 import { setCookies } from "../Cookies";
 dotenv.config();

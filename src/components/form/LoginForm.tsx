@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 import { Button } from "../ui/button";
 import Error from "@/components/helpers/Error";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { loginSchema, TLoginSchema } from "../types/LoginSchema";
+import { loginSchema, TLoginSchema } from "@/types/LoginSchema";
 import { authUser } from "@/services/auth/auth";
 import { useRouter } from "next/navigation";
 
@@ -26,7 +26,7 @@ const LoginForm = () => {
         if (success) {
           return router.push("/");
         }
-        setError("Credênciais Inválidas");
+        setError("Credenciais Inválidas");
         reset();
       })}
     >
