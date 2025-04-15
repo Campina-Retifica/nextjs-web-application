@@ -13,7 +13,7 @@ const loginPage = () => {
         width={720}
         height={900}
         sizes="40vw"
-        className="mx-auto hidden md:block"
+        className="h-auto w-initial mx-auto hidden md:block"
       />
       <div className="px-16 text-zinc-950 flex flex-col justify-center">
         <h1 className="text-4xl poppins font-[700] mb-4 w-[100%] md:w-[90%]">
