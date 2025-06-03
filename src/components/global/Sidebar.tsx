@@ -63,7 +63,7 @@ export function GlobalSidebar() {
   const [open, setOpen] = useState(false);
   return (
     <Sidebar open={open} setOpen={setOpen}>
-      <SidebarBody className="justify-between gap-10 h-screen">
+      <SidebarBody className="justify-between gap-10 h-screen sticky top-0 bottom-0 left-0 bg-zinc-900">
         <div className="flex flex-1 flex-col overflow-x-hidden overflow-y-auto">
           {open ? <Logo /> : <LogoIcon />}
           <div className="mt-8 flex flex-col gap-2 justify-between">

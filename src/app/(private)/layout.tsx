@@ -12,7 +12,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <div className="mx-auto flex w-full max-w-[1800px] flex-1 flex-col overflow-hidden border border-neutral-800 bg-neutral-800 md:flex-row dark:border-neutral-700 dark:bg-neutral-800 max-h-screen">
+    <div className="mx-auto flex w-full max-w-[1800px] flex-col border border-zinc-900 bg-zinc-900 md:flex-row dark:border-zinc-50 dark:bg-zinc-50">
       <GlobalSidebar />
       {children}
     </div>
