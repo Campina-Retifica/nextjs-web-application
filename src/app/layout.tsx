@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Poppins, Roboto } from "next/font/google";
+import { ReactLenis } from "@/helpers/lenis";
 import "./globals.css";
 
 const roboto = Roboto({
@@ -26,9 +27,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR">
-      <body className={`${poppins.variable} ${roboto.variable} antialiased`}>
-        {children}
-      </body>
+      <ReactLenis root>
+        <body className={`${poppins.variable} ${roboto.variable} antialiased`}>
+          {children}
+        </body>
+      </ReactLenis>
     </html>
   );
 }

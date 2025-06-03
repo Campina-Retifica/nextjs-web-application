@@ -5,7 +5,7 @@ import React from "react";
 
 const loginPage = () => {
   return (
-    <main className="grid grid-cols-1 md:grid-cols-2 bg-zinc-50 poppins max-h-screen h-screen">
+    <main className="grid grid-cols-1 md:grid-cols-2 bg-zinc-50 poppins max-h-screen">
       <Image
         priority
         src={"/campina-retifica.png"}
