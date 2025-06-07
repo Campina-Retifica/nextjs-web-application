@@ -1,11 +1,7 @@
 import { DialogFormServicos } from "@/components/servicos/DialogFormServicos";
 import { ServicosList } from "@/components/servicos/ServicosList";
-import { getServices } from "@/services/services/retificaServices";
-import { tServicos } from "@/types/api_data";
 
 const ServicosPage = async () => {
-  const servicos: tServicos[] = await getServices(10);
-
   return (
     <main className="w-full px-10 py-[2rem] flex flex-col rounded-2xl bg-zinc-50 poppins overflow-y-scroll">
       <div className="flex flex-col md:flex-row justify-between md:items-center w-full pb-4 border-b border-b-neutral-900/50 gap-6">
@@ -20,7 +16,7 @@ const ServicosPage = async () => {
         </div>
         <DialogFormServicos />
       </div>
-      <ServicosList servicos={servicos} />
+      <ServicosList />
     </main>
   );
 };
