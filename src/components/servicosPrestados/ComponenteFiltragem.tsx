@@ -232,14 +232,18 @@ export function ServicesFilter() {
               </SelectValue>
             </SelectTrigger>
             <SelectContent>
-              {filterOptions.map((option) => (
-                <SelectItem key={option.value} value={option.value}>
-                  <div className="flex items-center gap-2">
-                    {option.icon}
-                    <span>{option.label}</span>
-                  </div>
-                </SelectItem>
-              ))}
+              {filterOptions.length > 0 &&
+                filterOptions.map((option) => (
+                  <SelectItem key={option.value} value={option.value}>
+                    <div className="flex items-center gap-2">
+                      {option.icon}
+                      <span>{option.label}</span>
+                    </div>
+                  </SelectItem>
+                ))}
+              {filterOptions.length === 0 && (
+                <p>Nenhum serviço prestado foi cadastrado até então.</p>
+              )}
             </SelectContent>
           </Select>
         </div>
