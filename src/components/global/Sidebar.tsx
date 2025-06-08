@@ -4,15 +4,18 @@ import { Sidebar, SidebarBody, SidebarLink } from "../ui/sidebar";
 
 import { motion } from "motion/react";
 import Image from "next/image";
-import {
-  FileClock,
-  LayoutDashboardIcon,
-  LogOut,
-  User,
-  Wrench,
-} from "lucide-react";
+import { FileClock, LogOut, UsersRound, Wrench } from "lucide-react";
+import { useRouter } from "next/navigation";
+import { removeCookies } from "@/services/Cookies";
 
 export function GlobalSidebar() {
+  const router = useRouter();
+
+  async function logout() {
+    await removeCookies("token");
+    router.push("/login");
+  }
+
   const links = [
     {
       label: "Serviços prestados",
@@ -38,21 +41,10 @@ export function GlobalSidebar() {
       ),
     },
     {
-      label: "Dashboard",
-      href: "/desenvolvimento",
+      label: "Clientes",
+      href: "/clientes",
       icon: (
-        <LayoutDashboardIcon
-          className="shrink-0 text-zinc-300 dark:text-neutral-700 hover:text-zinc-50 dark:hover:text-neutral-800"
-          width={22}
-          height={22}
-        />
-      ),
-    },
-    {
-      label: "Logout",
-      href: "#",
-      icon: (
-        <LogOut
+        <UsersRound
           className="shrink-0 text-zinc-300 dark:text-neutral-700 hover:text-zinc-50 dark:hover:text-neutral-800"
           width={22}
           height={22}
@@ -70,16 +62,21 @@ export function GlobalSidebar() {
             {links.map((link, idx) => (
               <SidebarLink key={idx} link={link} />
             ))}
+
+            <button
+              onClick={logout}
+              className="cursor-pointer flex items-center gap-2 text-sm text-zinc-300 hover:text-red-500 transition px-0 py-2 group"
+            >
+              <LogOut width={22} height={22} />
+              {open ? (
+                <p className="group-hover:translate-x-1 transition duration-150">
+                  Sair
+                </p>
+              ) : (
+                ""
+              )}
+            </button>
           </div>
-        </div>
-        <div>
-          <SidebarLink
-            link={{
-              label: "Administrador",
-              href: "#",
-              icon: <User width={22} height={22} className="text-zinc-50" />,
-            }}
-          />
         </div>
       </SidebarBody>
     </Sidebar>
