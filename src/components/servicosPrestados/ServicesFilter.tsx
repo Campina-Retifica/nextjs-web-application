@@ -44,7 +44,7 @@ const filterOptions = [
 ];
 
 export function ServicesFilter() {
-  const [size, setSize] = useState(5);
+  const [size, setSize] = useState(6);
   const [servicosPrestados, setServicosPrestados] =
     useState<tServicosPrestados[]>();
 
@@ -151,7 +151,7 @@ export function ServicesFilter() {
           size === filteredServices.length ? (
             <Button
               className="shadow-transparent bg-transparent hover:bg-transparent hover:text-text-zinc-900 hover:scale-105 cursor-pointer text-zinc-900 underline"
-              onClick={() => setSize((size) => (size += 5))}
+              onClick={() => setSize((size) => (size += 6))}
             >
               Buscar mais Serviços
             </Button>

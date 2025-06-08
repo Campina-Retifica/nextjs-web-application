@@ -9,7 +9,7 @@ import React from "react";
 import { Button } from "../ui/button";
 
 export function ServicosList() {
-  const [size, setSize] = React.useState(5);
+  const [size, setSize] = React.useState(6);
   const [servicos, setServicos] = React.useState<tServicos[]>();
 
   React.useEffect(() => {
@@ -35,7 +35,7 @@ export function ServicosList() {
             onClick={() => {
               if (size > servicos.length || size === servicos.length)
                 setSize((size) => size + 1);
-              else setSize((size) => size + 5);
+              else setSize((size) => size + 6);
             }}
           >
             <RefreshCcw
@@ -79,7 +79,7 @@ export function ServicosList() {
           {servicos && servicos.length > 0 && size === servicos.length ? (
             <Button
               className="shadow-transparent bg-transparent hover:bg-transparent hover:text-text-zinc-900 hover:scale-105 cursor-pointer text-zinc-900 underline"
-              onClick={() => setSize((size) => (size += 5))}
+              onClick={() => setSize((size) => (size += 6))}
             >
               Buscar mais Serviços
             </Button>
