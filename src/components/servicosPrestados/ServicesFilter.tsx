@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   Select,
   SelectContent,
@@ -10,8 +10,10 @@ import {
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Filter, Users, Clock, DollarSign } from "lucide-react";
-import { tServicoPrestado } from "../types/monorepo";
 import PrestadosCard from "../global/PrestadosCard";
+import { tServicosPrestados } from "@/types/api_data";
+import { getProvidedServices } from "@/services/services/retificaServices";
+import Link from "next/link";
 
 const filterOptions = [
   {
@@ -20,200 +22,53 @@ const filterOptions = [
     icon: <Users className="w-4 h-4" />,
   },
   {
-    value: "concluido",
+    value: "COMPLETED",
     label: "Concluídos",
     icon: <Users className="w-4 h-4" />,
   },
   {
-    value: "pendente",
+    value: "CANCELED",
+    label: "Cancelados",
+    icon: <Users className="w-4 h-4" />,
+  },
+  {
+    value: "PENDING",
     label: "Pendentes",
     icon: <DollarSign className="w-4 h-4" />,
   },
   {
-    value: "em_andamento",
+    value: "IN_PROGRESS",
     label: "Em andamento",
     icon: <Clock className="w-4 h-4" />,
   },
 ];
 
-const services: tServicoPrestado[] = [
-  {
-    id_servico: "srv001",
-    id_cliente: "cli001",
-    data_inicio: "2025-06-01",
-    data_fim: "2025-06-02",
-    status: "pendente",
-    pago: false,
-  },
-  {
-    id_servico: "srv002",
-    id_cliente: "cli002",
-    data_inicio: "2025-05-28",
-    data_fim: "2025-05-29",
-    status: "concluido",
-    pago: true,
-  },
-  {
-    id_servico: "srv003",
-    id_cliente: "cli003",
-    data_inicio: "2025-05-25",
-    data_fim: "2025-05-27",
-    status: "em_andamento",
-    pago: false,
-  },
-  {
-    id_servico: "srv004",
-    id_cliente: "cli004",
-    data_inicio: "2025-06-01",
-    data_fim: "2025-06-01",
-    status: "pendente",
-    pago: false,
-  },
-  {
-    id_servico: "srv005",
-    id_cliente: "cli005",
-    data_inicio: "2025-05-20",
-    data_fim: "2025-05-21",
-    status: "concluido",
-    pago: true,
-  },
-  {
-    id_servico: "srv006",
-    id_cliente: "cli006",
-    data_inicio: "2025-05-22",
-    data_fim: "2025-05-23",
-    status: "pendente",
-    pago: false,
-  },
-  {
-    id_servico: "srv007",
-    id_cliente: "cli007",
-    data_inicio: "2025-05-24",
-    data_fim: "2025-05-25",
-    status: "em_andamento",
-    pago: false,
-  },
-  {
-    id_servico: "srv008",
-    id_cliente: "cli008",
-    data_inicio: "2025-05-26",
-    data_fim: "2025-05-27",
-    status: "concluido",
-    pago: true,
-  },
-  {
-    id_servico: "srv009",
-    id_cliente: "cli009",
-    data_inicio: "2025-05-28",
-    data_fim: "2025-05-29",
-    status: "pendente",
-    pago: false,
-  },
-  {
-    id_servico: "srv010",
-    id_cliente: "cli010",
-    data_inicio: "2025-05-30",
-    data_fim: "2025-05-30",
-    status: "pendente",
-    pago: false,
-  },
-  {
-    id_servico: "srv011",
-    id_cliente: "cli011",
-    data_inicio: "2025-05-21",
-    data_fim: "2025-05-22",
-    status: "concluido",
-    pago: true,
-  },
-  {
-    id_servico: "srv012",
-    id_cliente: "cli012",
-    data_inicio: "2025-05-23",
-    data_fim: "2025-05-24",
-    status: "em_andamento",
-    pago: false,
-  },
-  {
-    id_servico: "srv013",
-    id_cliente: "cli013",
-    data_inicio: "2025-05-25",
-    data_fim: "2025-05-26",
-    status: "pendente",
-    pago: false,
-  },
-  {
-    id_servico: "srv014",
-    id_cliente: "cli014",
-    data_inicio: "2025-05-27",
-    data_fim: "2025-05-28",
-    status: "concluido",
-    pago: true,
-  },
-  {
-    id_servico: "srv015",
-    id_cliente: "cli015",
-    data_inicio: "2025-05-29",
-    data_fim: "2025-05-30",
-    status: "pendente",
-    pago: false,
-  },
-  {
-    id_servico: "srv016",
-    id_cliente: "cli016",
-    data_inicio: "2025-05-31",
-    data_fim: "2025-06-01",
-    status: "em_andamento",
-    pago: false,
-  },
-  {
-    id_servico: "srv017",
-    id_cliente: "cli017",
-    data_inicio: "2025-06-01",
-    data_fim: "2025-06-01",
-    status: "pendente",
-    pago: false,
-  },
-  {
-    id_servico: "srv018",
-    id_cliente: "cli018",
-    data_inicio: "2025-06-02",
-    data_fim: "2025-06-03",
-    status: "concluido",
-    pago: true,
-  },
-  {
-    id_servico: "srv019",
-    id_cliente: "cli019",
-    data_inicio: "2025-06-03",
-    data_fim: "2025-06-04",
-    status: "em_andamento",
-    pago: false,
-  },
-  {
-    id_servico: "srv020",
-    id_cliente: "cli020",
-    data_inicio: "2025-06-05",
-    data_fim: "2025-06-06",
-    status: "pendente",
-    pago: false,
-  },
-];
-
 export function ServicesFilter() {
+  const [size, setSize] = useState(5);
+  const [servicosPrestados, setServicosPrestados] =
+    useState<tServicosPrestados[]>();
+
   const [selectedFilter, setSelectedFilter] = useState("all");
 
-  const filteredServices = services.filter((service) => {
+  const filteredServices = servicosPrestados?.filter((service) => {
     if (selectedFilter === "all") return true;
-    if (selectedFilter === "pendente") return service.status === "pendente";
-    if (selectedFilter === "em_andamento")
-      return service.status === "em_andamento";
-    if (selectedFilter === "concluido") return service.status === "concluido";
+    if (selectedFilter === "PENDING") return service.status === "PENDING";
+    if (selectedFilter === "IN_PROGRESS")
+      return service.status === "IN_PROGRESS";
+    if (selectedFilter === "COMPLETED") return service.status === "COMPLETED";
+    if (selectedFilter === "CANCELED") return service.status === "CANCELED";
   });
-
   const selectedOption = filterOptions.find(
     (option) => option.value === selectedFilter
   );
 
+  useEffect(() => {
+    const handleGetServices = async () => {
+      const servicos: tServicosPrestados[] = await getProvidedServices(size);
+      setServicosPrestados(servicos);
+    };
+    handleGetServices();
+  }, [size]);
   return (
     <div className="max-w-full p-0">
       <div className="my-10">
@@ -248,46 +103,61 @@ export function ServicesFilter() {
           </Select>
         </div>
 
-        <div className="flex items-center gap-2 text-sm text-slate-600">
+        <div className="flex items-center gap-2">
           <span>Mostrando</span>
-          <Badge variant="secondary">{filteredServices.length}</Badge>
+          <Badge variant="secondary">
+            {filteredServices ? filteredServices.length : 0}
+          </Badge>
           <span>
-            {filteredServices.length === 1 ? "serviço" : "serviços"}
-            {selectedFilter !== "all" && ` em "${selectedOption?.label}"`}
+            {filteredServices && filteredServices.length === 1
+              ? "serviço"
+              : "serviços"}
           </span>
         </div>
       </div>
 
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {filteredServices.map((service) => (
-          <PrestadosCard
-            key={
-              service.data_inicio +
-              service.id_cliente +
-              service.id_servico +
-              service.status +
-              service.data_fim
-            }
-            service={service}
-          />
-        ))}
-      </div>
+        {filteredServices &&
+          filteredServices.length > 0 &&
+          filteredServices.map((service) => (
+            <PrestadosCard key={service.id} service={service} />
+          ))}
 
-      {filteredServices.length === 0 && (
-        <div className="text-center py-12">
-          <div className="text-slate-400 mb-4">
-            <Filter className="w-16 h-16 mx-auto mb-4" />
+        {(!filteredServices || filteredServices.length === 0) && (
+          <div className="text-center py-12 mx-auto col-end-3">
+            <div className="text-slate-400 mb-4">
+              <Filter className="w-16 h-16 mx-auto mb-4" />
+            </div>
+            <h3 className="text-xl font-semibold mb-2">
+              Nenhum serviço encontrado.
+            </h3>
+            <p>
+              Se estiver enfrentando problemas, fale com o suporte clicando
+              {`  `}
+              <Link
+                href={"https://encurtador.com.br/wvvX9"}
+                className="underline"
+              >
+                aqui.
+              </Link>
+            </p>
           </div>
-          <h3 className="text-xl font-semibold mb-2">
-            Nenhum serviço encontrado
-          </h3>
-          <p className="text-slate-600 mb-4">
-            Não encontramos serviços para o filtro selecionado. Tente uma
-            categoria diferente.
-          </p>
-          <Button onClick={() => setSelectedFilter("all")} variant="outline">
-            Ver Todos os Serviços
-          </Button>
+        )}
+      </div>
+      {filteredServices && filteredServices.length > 0 && (
+        <div className="mt-8 flex items-center justify-center w-full">
+          {filteredServices &&
+          filteredServices.length > 0 &&
+          size === filteredServices.length ? (
+            <Button
+              className="shadow-transparent bg-transparent hover:bg-transparent hover:text-text-zinc-900 hover:scale-105 cursor-pointer text-zinc-900 underline"
+              onClick={() => setSize((size) => (size += 5))}
+            >
+              Buscar mais Serviços
+            </Button>
+          ) : (
+            <p className="text-zinc-900 ">Não há mais nenhum serviço.</p>
+          )}
         </div>
       )}
     </div>

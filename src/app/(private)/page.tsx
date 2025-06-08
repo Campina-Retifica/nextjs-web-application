@@ -1,6 +1,5 @@
-import { ServicesFilter } from "@/components/servicosPrestados/ComponenteFiltragem";
-import { Button } from "@/components/ui/button";
-import { Plus } from "lucide-react";
+import { ServicesFilter } from "@/components/servicosPrestados/ServicesFilter";
+import { DialogFormServicosPrestados } from "@/components/servicosPrestados/DialogFormServicosPrestados";
 
 const servicosPrestadosPage = () => {
   return (
@@ -15,10 +14,7 @@ const servicosPrestadosPage = () => {
             filtro abaixo para refinar sua busca.
           </p>
         </div>
-        <Button className="max-w-[200px] hover:text-zinc-900 bg-neutral-900 p-0 cursor-pointer hover:bg-zinc-900/30">
-          <p className="">Prestar novo serviço </p>
-          <Plus width={16} height={16} />
-        </Button>
+        <DialogFormServicosPrestados />
       </div>
       <ServicesFilter />
     </main>

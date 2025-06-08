@@ -15,6 +15,13 @@ export type tServicosPrestados = {
   paid: boolean;
 };
 
+export enum eStatusServicos {
+  PENDING = "PENDING",
+  IN_PROGRESS = "IN_PROGRESS",
+  COMPLETED = "COMPLETED",
+  CANCELED = "CANCELED",
+}
+
 export type tCliente = {
   id: number;
   firstName: string;
@@ -24,10 +31,3 @@ export type tCliente = {
   email: string;
   telephone: string;
 };
-
-export enum eStatusServicos {
-  PENDING = "pendente",
-  IN_PROGRESS = "em andamento",
-  COMPLETED = "concluído",
-  CANCELED = "cancelado",
-}

@@ -1,5 +1,7 @@
 import { z } from "zod";
 
+const isoDateRegex = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}$/;
+
 export const loginSchema = z.object({
   username: z
     .string()
@@ -24,3 +26,18 @@ export const newServiceSchema = z.object({
 });
 
 export type TNewServiceSchema = z.infer<typeof newServiceSchema>;
+
+export const newProvidedServiceSchema = z.object({
+  serviceId: z.coerce.number().nonnegative("O valor não pode ser negativo."),
+  customerId: z.coerce.number().nonnegative("O valor não pode ser negativo."),
+  startDate: z.string().regex(isoDateRegex, {
+    message: "Data inicial deve estar no formato YYYY-MM-DDTHH:mm",
+  }),
+  endDate: z.string().regex(isoDateRegex, {
+    message: "Data final deve estar no formato YYYY-MM-DDTHH:mm",
+  }),
+});
+
+export type TNewProvidedServiceSchema = z.infer<
+  typeof newProvidedServiceSchema
+>;
