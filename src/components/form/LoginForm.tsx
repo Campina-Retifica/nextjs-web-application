@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 import { Button } from "../ui/button";
 import Error from "@/components/helpers/Error";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { loginSchema, TLoginSchema } from "@/types/LoginSchema";
+import { loginSchema, TLoginSchema } from "@/types/payloadSchemas";
 import { authUser } from "@/services/auth/auth";
 import { useRouter } from "next/navigation";
 
@@ -38,7 +38,7 @@ const LoginForm = () => {
             type="text"
             id="username"
             name="username"
-            className="text-zinc-700 duration-200 bg-zinc-200 p-2 rounded outline-none border border-zinc-400 hover:border-zinc-950"
+            className="text-zinc-700 duration-200 bg-zinc-100 p-2 rounded outline-none border border-zinc-400 hover:border-zinc-950"
             autoComplete="off"
           />
         </label>
@@ -53,7 +53,7 @@ const LoginForm = () => {
             type="password"
             id="password"
             name="password"
-            className="text-zinc-700 duration-200 bg-zinc-200 p-2 rounded outline-none border border-zinc-400 hover:border-zinc-950"
+            className="text-zinc-700 duration-200 bg-zinc-100 p-2 rounded outline-none border border-zinc-400 hover:border-zinc-950"
           />
         </label>
         <Error error={errors.password && errors.password.message} />
