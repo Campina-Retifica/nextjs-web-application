@@ -16,7 +16,7 @@ export function GlobalSidebar() {
   const links = [
     {
       label: "Serviços prestados",
-      href: "/servicos-prestados",
+      href: "/",
       icon: (
         <FileClock
           className="shrink-0 text-zinc-300 dark:text-neutral-700 hover:text-zinc-50 dark:hover:text-neutral-800"
