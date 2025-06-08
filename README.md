@@ -1,36 +1,88 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+<div align="center">
 
-## Getting Started
+<img src="https://raw.githubusercontent.com/Campina-Retifica/assets/main/logo.png" width="100" alt="Logo da Campina Retífica"/>
 
-First, run the development server:
+# Campina Retífica — Frontend (Next.js)
+
+Aplicação web desenvolvida com **Next.js**, conectada a uma API RESTful em Java Spring Boot, responsável por gerenciar serviços, clientes e atendimentos da retífica.
+
+</div>
+
+---
+
+## 🚀 Tecnologias Principais
+
+- ✅ [Next.js](https://nextjs.org/)
+- ✅ TypeScript
+- ✅ TailwindCSS
+- ✅ ShadCN UI
+- ✅ React Hook Form + Zod
+- ✅ Integração com API Java Spring
+
+---
+
+## 📦 Pré-requisitos
+
+Antes de iniciar o projeto, certifique-se de ter:
+
+- ✅ **Node.js** 18+
+- ✅ **npm** ou **yarn**
+- ✅ **PostgreSQL** em execução
+- ✅ Backend configurado e rodando:  
+  🔗 [Repositório da API Spring Boot](https://github.com/Campina-Retifica/api-restful-spring)
+
+---
+
+## ⚙️ Configuração do ambiente
+
+### 1. **Clone o repositório**
+
+```bash
+git clone https://github.com/Campina-Retifica/frontend.git
+cd frontend
+```
+
+### 2. **Instale as dependências**
+
+```bash
+npm install
+```
+
+### 3. **Instale as dependências**
+
+Já existe um `.env` padrão incluso no repositório.
+Verifique se a variável `NEXT_PUBLIC_API_URL` está apontando corretamente para o backend (http://localhost:8080).
+
+```env
+NEXT_PUBLIC_API_URL=http://localhost:8080
+```
+
+## ▶️ Executando o projeto
+
+Com tudo configurado, execute o projeto com:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+A aplicação ficará acessível em http://localhost:3000
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🧪 Requisitos
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- ✅ PostgreSQL está rodando localmente (porta 5432 por padrão)?
 
-## Learn More
+- ✅ Backend da API Spring está rodando e acessível em http://localhost:8080?
 
-To learn more about Next.js, take a look at the following resources:
+- ✅ .env corretamente preenchido?
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+##
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+<div align="center">
 
-## Deploy on Vercel
+_Feito para a Campina Retífica – 2025_
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+</div>
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+<br><br>
+
+by [_Francinaldo Batista._](https://github.com/Batissta)
