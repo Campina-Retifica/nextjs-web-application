@@ -7,6 +7,7 @@ import {
   newProvidedServiceSchema,
   TNewProvidedServiceSchema,
 } from "@/types/payloadSchemas";
+import { postNewProvidedService } from "@/services/services/retificaServices";
 
 const NewProvidedServiceForm = () => {
   const {
@@ -19,9 +20,7 @@ const NewProvidedServiceForm = () => {
   });
 
   const onSubmit = async (data: TNewProvidedServiceSchema) => {
-    // await postNewService(data);
-    console.log(data);
-
+    await postNewProvidedService(data);
     reset();
   };
 
