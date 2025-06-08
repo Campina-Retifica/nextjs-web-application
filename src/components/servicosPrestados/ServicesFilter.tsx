@@ -156,7 +156,9 @@ export function ServicesFilter() {
               Buscar mais Serviços
             </Button>
           ) : (
-            <p className="text-zinc-900 ">Não há mais nenhum serviço.</p>
+            <p className="text-zinc-900 place-self-end">
+              Não há mais nenhum serviço.
+            </p>
           )}
         </div>
       )}
