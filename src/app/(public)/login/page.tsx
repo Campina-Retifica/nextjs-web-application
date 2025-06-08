@@ -24,9 +24,7 @@ const loginPage = () => {
           Enfrentando algum problema?{` `}
           <Link
             className="text-zinc-900 underline"
-            href={
-              "https://wa.me/+5583996955416?text=Olá,%20Francinaldo!%20Estou%20com%20uma%20dúvida%20em%20relação%20a..."
-            }
+            href={"https://encurtador.com.br/wvvX9"}
           >
             Entre em contato!
           </Link>
